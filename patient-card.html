@@ -1,1 +1,114 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Patient Card | SmartCare SL</title><link rel="stylesheet" href="css/style.css"></head><body><nav class="nav"><div class="container"><a class="logo" href="index.html"><div class="logo-mark">✚</div><div><strong>SmartCare SL</strong><span>Better Care, Better Life</span></div></a><button class="icon-btn mobile" onclick="nav()">☰</button><div class="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="doctors.html">Doctors</a><a href="appointments.html">Appointments</a><a href="ai-check.html">AI Check</a><a href="patient-card.html">Patient Card</a><a href="pharmacy.html">Pharmacy</a><a href="alerts.html">Alerts</a><a href="audit.html">Audit</a><a href="emergency.html">Emergency</a><a href="contact.html">Contact</a></div><div class="actions"><button class="icon-btn" onclick="location.href='alerts.html'">🔔</button><button class="icon-btn" onclick="toggleDark()">☾</button><a class="btn secondary" href="login.html">Login</a><a class="btn" href="appointments.html">Register</a></div></div></nav><section class="page-hero"><h1>Patient Card Generator</h1><p>Generate patient ID card with photo, QR style code, PDF print and history.</p></section><section class="section"><div class="container form-grid"><div class="panel"><h2>Patient Details</h2><div class="form"><input id="pName" placeholder="Patient Name"><input id="pAge" placeholder="Age"><input id="pBlood" placeholder="Blood Group"><input id="pPhone" placeholder="Phone"><input id="pAddress" placeholder="Address"><div class="photo-box" id="photoPreview">👤</div><input type="file" accept="image/*" onchange="loadPhoto(event)"><button class="btn" onclick="makePatientCard()">Generate Card</button><button class="btn secondary" onclick="printCard()">Download / Print PDF</button></div></div><div class="panel"><h2>Preview</h2><div class="card-preview" id="cardResult">Your patient card will show here.</div></div></div><br><div class="container"><div class="panel"><h2>Patient History</h2><div id="patientHistory"></div></div></div></section><footer class="footer"><div class="container footer-grid"><div><h2>✚ SmartCare SL</h2><p>Premium Sierra Leone healthcare website for services, doctor search, appointments, AI checks, patient cards, reminders and emergency care.</p></div><div><h3>Pages</h3><a>Services</a><br><a>Doctors</a><br><a>AI Check</a><br><a>Patient Card</a></div><div><h3>Support</h3><a>Emergency</a><br><a>Medicine Reminder</a><br><a>Health Tips</a></div><div><h3>Contact</h3><p>Freetown, Sierra Leone<br>+232 76 123 456<br>info@smartcaresl.com</p></div></div></footer><div id="modal" class="modal hidden"></div><script src="js/app.js"></script></body></html>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Card | SmartCare SL</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"
+          ><div class="logo-mark">✚</div>
+          <div>
+            <strong>SmartCare SL</strong><span>Better Care, Better Life</span>
+          </div></a
+        ><button class="icon-btn mobile" onclick="nav()">☰</button>
+        <div class="menu">
+          <a href="index.html">Home</a><a href="about.html">About</a
+          ><a href="services.html">Services</a><a href="doctors.html">Doctors</a
+          ><a href="appointments.html">Appointments</a
+          ><a href="ai-check.html">AI Check</a
+          ><a href="patient-card.html">Patient Card</a
+          ><a href="pharmacy.html">Pharmacy</a><a href="alerts.html">Alerts</a
+          ><a href="audit.html">Audit</a><a href="emergency.html">Emergency</a
+          ><a href="contact.html">Contact</a>
+        </div>
+        <div class="actions">
+          <button class="icon-btn" onclick="location.href = 'alerts.html'">
+            🔔</button
+          ><button class="icon-btn" onclick="toggleDark()">☾</button
+          ><a class="btn secondary" href="login.html">Login</a
+          ><a class="btn" href="appointments.html">Register</a>
+        </div>
+      </div>
+    </nav>
+    <section class="page-hero">
+      <h1>Patient Card Generator</h1>
+      <p>
+        Generate patient ID card with photo, QR style code, PDF print and
+        history.
+      </p>
+    </section>
+    <section class="section">
+      <div class="container form-grid">
+        <div class="panel">
+          <h2>Patient Details</h2>
+          <div class="form">
+            <input id="pName" placeholder="Patient Name" /><input
+              id="pAge"
+              placeholder="Age"
+            /><input id="pBlood" placeholder="Blood Group" /><input
+              id="pPhone"
+              placeholder="Phone"
+            /><input id="pAddress" placeholder="Address" />
+            <div class="photo-box" id="photoPreview">👤</div>
+            <input
+              type="file"
+              accept="image/*"
+              onchange="loadPhoto(event)"
+            /><button class="btn" onclick="makePatientCard()">
+              Generate Card</button
+            ><button class="btn secondary" onclick="printCard()">
+              Download / Print PDF
+            </button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Preview</h2>
+          <div class="card-preview" id="cardResult">
+            Your patient card will show here.
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="container">
+        <div class="panel">
+          <h2>Patient History</h2>
+          <div id="patientHistory"></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>✚ SmartCare SL</h2>
+          <p>
+            Premium Sierra Leone healthcare website for services, doctor search,
+            appointments, AI checks, patient cards, reminders and emergency
+            care.
+          </p>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <a>Services</a><br /><a>Doctors</a><br /><a>AI Check</a><br /><a
+            >Patient Card</a
+          >
+        </div>
+        <div>
+          <h3>Support</h3>
+          <a>Emergency</a><br /><a>Medicine Reminder</a><br /><a>Health Tips</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>
+            Freetown, Sierra Leone<br />+232 76 123 456<br />info@smartcaresl.com
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div id="modal" class="modal hidden"></div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
