@@ -1,0 +1,1 @@
+# SmartCare SL Extreme Final Complete\n\nComplete multi-page healthcare website with doctor search, appointment booking, AI checker, patient cards, pharmacy, alerts, emergency and audit logs.\n
