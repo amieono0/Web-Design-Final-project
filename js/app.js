@@ -388,41 +388,16 @@ function loadPhoto(event){
 
   reader.readAsDataURL(file);
 }
-function generatePatientCard() {
-  const name = document.getElementById("pName")?.value || "Mohamed Kamara";
-  const age = document.getElementById("pAge")?.value || "28";
-  const blood = document.getElementById("pBlood")?.value || "O+";
-  const phone = document.getElementById("pPhone")?.value || "+232 76 123456";
-  const address = document.getElementById("pAddress")?.value || "Freetown";
-  const id = "SC" + Math.floor(100000 + Math.random() * 900000);
-
-  const photoHTML = selectedPhoto
-    ? `<img src="${selectedPhoto}" alt="Patient Photo">`
-    : "👤";
-
-  document.getElementById("cardResult").innerHTML = `
-    <div class="patient-card" id="printCard">
-      <div class="patient-head">
-        <span>✚ SmartCare SL</span>
-        <span>ID: ${id}</span>
-      </div>
-
-      <div class="patient-body">
-        <div class="photo-box">${photoHTML}</div>
-
-        <div class="patient-info">
-          <b>Name:</b> ${name}<br>
-          <b>Age:</b> ${age}<br>
-          <b>Blood:</b> ${blood}<br>
-          <b>Phone:</b> ${phone}<br>
-          <b>Address:</b> ${address}
-        </div>
-
-        <div class="qr"></div>
-      </div>
-    </div>
-  `;
-}
+function makePatientCard(){
+  const p = {
+    id: "SC" + Math.floor(100000 + Math.random() * 900000),
+    name: $("pName") ? $("pName").value || "Mohamed Kamara" : "Mohamed Kamara",
+    age: $("pAge") ? $("pAge").value || "28" : "28",
+    blood: $("pBlood") ? $("pBlood").value || "O+" : "O+",
+    phone: $("pPhone") ? $("pPhone").value || "+232 76 123456" : "+232 76 123456",
+    address: $("pAddress") ? $("pAddress").value || "Freetown" : "Freetown",
+    photo: selectedPhoto
+  };
 
   patients.unshift(p);
   save();
@@ -434,7 +409,7 @@ function generatePatientCard() {
   renderPatients();
   addAudit("CREATE_PATIENT_CARD", p.name + " card generated");
   toast("Patient card generated successfully");
-{}
+}
 function patientCardHTML(p) {
   return `<div class="patient-card" id="printCard"><div class="patient-head"><span>✚ SmartCare SL PATIENT CARD</span><span>ID: ${p.id}</span></div><br><div class="patient-body"><div class="photo-box">${p.photo ? `<img src="${p.photo}">` : "👤"}</div><div><b>Name:</b> ${p.name}<br><b>Age:</b> ${p.age}<br><b>Blood:</b> ${p.blood}<br><b>Phone:</b> ${p.phone}<br><b>Address:</b> ${p.address}</div><div class="qr"></div></div></div>`;
 }
